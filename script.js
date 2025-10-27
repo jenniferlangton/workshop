@@ -82,9 +82,14 @@ function renderProducts() {
             <h3 class="product-title">${product.name}</h3>
             <p class="product-description">${product.description}</p>
             <div class="product-price">$${product.price}</div>
-            <button class="add-to-cart" onclick="addToCart(${product.id})">
-                Add to Cart
-            </button>
+            <div class="product-actions">
+                <button class="add-to-cart" onclick="addToCart(${product.id})">
+                    Add to Cart
+                </button>
+                <button class="view-details" onclick="viewProductDetails(${product.id})">
+                    View Details
+                </button>
+            </div>
         `;
         productGrid.appendChild(productCard);
     });
@@ -204,6 +209,11 @@ function scrollToProducts() {
     document.getElementById('products').scrollIntoView({
         behavior: 'smooth'
     });
+}
+
+// Navigate to product detail page
+function viewProductDetails(productId) {
+    window.location.href = `product-detail.html?id=${productId}`;
 }
 
 // Add some fun animations
